@@ -111,7 +111,7 @@ export function HeaderComponent() {
         [classes.linkActive]: active === link.link,
       })}
       onClick={(event) => {
-        // event.preventDefault();
+        event.preventDefault();
         setActive(link.link);
       }}
     >
@@ -126,9 +126,8 @@ export function HeaderComponent() {
       </div>
       <Header height={56} mb={"xl"}>
         <div className={classes.inner}>
-          <Group className={classes.links} spacing={10}>
-            <Link href={"/"}>Trang chủ</Link>
-            <Link href={"/gioi-thieu"}>Giới thiệu</Link>
+          <Group className={classes.links} spacing={5}>
+            {items}
           </Group>
           <Group align="center">
             <Anchor href={"/"}>
@@ -145,7 +144,7 @@ export function HeaderComponent() {
           </Group>
           <Group spacing={0} className={classes.social} position="right" noWrap>
             <Button variant="outline">
-              <Link href={"http://localhost:5173/login"}>Đăng nhập</Link>
+              <Link href={"http://localhost:5173/login"}>Đăng nh</Link>
             </Button>
           </Group>
         </div>

@@ -1,6 +1,7 @@
 import { Courses } from "@/components/Courses";
 import { Teachers } from "@/components/Teachers";
 import { Layout } from "@/layout";
+import { MocksData } from "@/mocks";
 import { ICourse } from "@/types/models/ICourse";
 import { IUser } from "@/types/models/IUser";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -32,6 +33,6 @@ export const getStaticProps: GetStaticProps<{
   const jsonTeachers = await responseTeachers.json();
   const teachers = jsonTeachers.data;
   return {
-    props: { courses, teachers: teachers },
+    props: { courses: MocksData.Course, teachers: [] },
   };
 };
