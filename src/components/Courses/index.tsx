@@ -18,12 +18,13 @@ export const Courses: React.FC<Props> = ({ courses }) => {
       </Card>
 
       <Grid gutter={"lg"}>
-        {courses.length > 0 &&
-          courses.map((course) => (
-            <Col key={course.id} span={6}>
-              <CourseCard classInfo={course} />
-            </Col>
-          ))}
+        {courses && courses.length > 0
+          ? courses.map((course) => (
+              <Col key={course.id} span={6}>
+                <CourseCard classInfo={course} />
+              </Col>
+            ))
+          : null}
       </Grid>
     </Stack>
   );

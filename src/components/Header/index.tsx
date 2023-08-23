@@ -127,7 +127,13 @@ export function HeaderComponent() {
       <Header height={56} mb={"xl"}>
         <div className={classes.inner}>
           <Group className={classes.links} spacing={5}>
-            {items}
+            <Link href={""}>
+              {" "}
+              <Text fw={500}>Trang chủ</Text>
+            </Link>
+            <Link href={"/gioi-thieu"}>
+              <Text fw={500}>Giới thiệu</Text>
+            </Link>
           </Group>
           <Group align="center">
             <Anchor href={"/"}>
@@ -144,7 +150,7 @@ export function HeaderComponent() {
           </Group>
           <Group spacing={0} className={classes.social} position="right" noWrap>
             <Button variant="outline">
-              <Link href={"http://localhost:5173/login"}>Đăng nh</Link>
+              <Link href={"http://localhost:5173/login"}>Đăng nhập</Link>
             </Button>
           </Group>
         </div>
