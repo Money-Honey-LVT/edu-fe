@@ -90,16 +90,12 @@ const useStyles = createStyles((theme) => ({
 export function HeaderComponent() {
   const links = [
     {
-      link: "/trang-chu",
+      link: "",
       label: "Trang chủ",
     },
     {
-      link: "/tin-tuc",
-      label: "Tin tức",
-    },
-    {
-      link: "/giang-day",
-      label: "Giảng dạy",
+      link: "/gioi-thieu",
+      label: "Giới thiệu",
     },
   ];
   const [opened, { toggle }] = useDisclosure(false);
@@ -108,19 +104,19 @@ export function HeaderComponent() {
   const theme = useMantineTheme();
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
       onClick={(event) => {
-        event.preventDefault();
+        // event.preventDefault();
         setActive(link.link);
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
@@ -130,8 +126,9 @@ export function HeaderComponent() {
       </div>
       <Header height={56} mb={"xl"}>
         <div className={classes.inner}>
-          <Group className={classes.links} spacing={5}>
-            {items}
+          <Group className={classes.links} spacing={10}>
+            <Link href={"/"}>Trang chủ</Link>
+            <Link href={"/gioi-thieu"}>Giới thiệu</Link>
           </Group>
           <Group align="center">
             <Anchor href={"/"}>
