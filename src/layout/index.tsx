@@ -10,7 +10,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="">
       <HeaderComponent />
-      <div className="flex justify-center px-6 ">
+      <div className="flex justify-center p-6">
         <Grid gutter={"lg"} w={"100%"}>
           <Col offset={2} span={8} className="px-6">
             {children}

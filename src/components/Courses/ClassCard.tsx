@@ -18,16 +18,22 @@ export const CourseCard: React.FC<Props> = ({ classInfo }) => {
         <Text fw={"bold"}>{name}</Text>
         <Text color="dimmed">{description}</Text>
         <Group position="apart">
-          <Badge color="blue">Phòng {room?.name}</Badge>
-          <Badge color="gray">Số lượng tối đa: {room?.capacity}</Badge>
+          {room?.name && <Badge color="blue">Phòng {room?.name}</Badge>}
+          {room?.capacity && (
+            <Badge color="gray">Số lượng tối đa: {room?.capacity}</Badge>
+          )}
         </Group>
         <Group spacing={"xs"}>
-          <Text color="dimmed">Thời gian:</Text>
-          {timeTableList.map((time, index) => (
-            <Text key={index} color="dimmed">
-              {DateParser(time.inDate)}({time.start} -{time.end})
-            </Text>
-          ))}
+          {timeTableList ? (
+            <>
+              <Text color="dimmed">Thời gian:</Text>
+              {timeTableList.map((time, index) => (
+                <Text key={index} color="dimmed">
+                  {DateParser(time.inDate)}({time.start} -{time.end})
+                </Text>
+              ))}
+            </>
+          ) : null}
         </Group>
       </Stack>
     </Card>

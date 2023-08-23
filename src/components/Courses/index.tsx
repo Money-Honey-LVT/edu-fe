@@ -8,6 +8,7 @@ interface Props {
 }
 
 export const Courses: React.FC<Props> = ({ courses }) => {
+  console.log(courses);
   return (
     <Stack mb={"md"}>
       <Card bg="blue" shadow="xs" radius={"md"} padding={"xs"}>
@@ -17,11 +18,12 @@ export const Courses: React.FC<Props> = ({ courses }) => {
       </Card>
 
       <Grid gutter={"lg"}>
-        {courses.map((course) => (
-          <Col key={course.id} span={6}>
-            <CourseCard classInfo={course} />
-          </Col>
-        ))}
+        {courses.length > 0 &&
+          courses.map((course) => (
+            <Col key={course.id} span={6}>
+              <CourseCard classInfo={course} />
+            </Col>
+          ))}
       </Grid>
     </Stack>
   );

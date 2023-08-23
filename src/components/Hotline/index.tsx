@@ -12,7 +12,7 @@ export const Hotline = () => {
           <Text color="blue" fw={500}>
             Hotline
           </Text>
-          <Text color="dimmed">094 473 22 66</Text>
+          <Text color="dimmed">0902150168</Text>
         </Stack>
       </Group>
       <Group align="center" position="apart" spacing={"xs"}>

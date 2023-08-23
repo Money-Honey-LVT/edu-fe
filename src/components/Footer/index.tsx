@@ -225,7 +225,7 @@ export function FooterComponent({
           </div>
           <div className="flex items-center gap-x-2">
             <IconPhone size={"0.8rem"} />
-            <span>Điện thoại: 0944732266</span>
+            <span>Điện thoại: 0902150168</span>
           </div>
         </div>
         {/* <div>

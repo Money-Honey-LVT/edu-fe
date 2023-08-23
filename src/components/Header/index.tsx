@@ -12,6 +12,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Link from "next/link";
 import { useState } from "react";
 
 const useStyles = createStyles((theme) => ({
@@ -146,7 +147,9 @@ export function HeaderComponent() {
             </Text>
           </Group>
           <Group spacing={0} className={classes.social} position="right" noWrap>
-            <Button variant="outline">Đăng nhập</Button>
+            <Button variant="outline">
+              <Link href={"http://localhost:5173/login"}>Đăng nhập</Link>
+            </Button>
           </Group>
         </div>
       </Header>
