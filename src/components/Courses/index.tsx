@@ -9,7 +9,7 @@ interface Props {
 
 export const Courses: React.FC<Props> = ({ courses }) => {
   return (
-    <Stack mb={"md"}>
+    <Stack mb={"xl"}>
       <Card bg="blue" shadow="xs" radius={"md"} padding={"xs"}>
         <Text color="white" fw={500}>
           Danh sách lớp học

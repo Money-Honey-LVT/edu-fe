@@ -46,8 +46,8 @@ export const Teachers: React.FC<Props> = ({ teachers }) => {
                       <Text color="dimmed">{teacher.fullName}</Text>
                     </Group>
                     <Group spacing={3}>
-                      <Text fw={500}>Điện thoại: </Text>
-                      <Text color="dimmed">{teacher.phoneNumber}</Text>
+                      <Text fw={500}>Email: </Text>
+                      <Text color="dimmed">{teacher.email}</Text>
                     </Group>
                     <Group spacing={3}>
                       <Text fw={500}>Mô tả: </Text>
