@@ -1,15 +1,19 @@
 import { GiayPhep } from "@/components/GiayPhep";
 import { Layout } from "@/layout";
 import { Card, Center, Stack, Text } from "@mantine/core";
+import Head from "next/head";
 import Image from "next/image";
 
 export default function Introduce() {
   return (
     <Layout>
+      <Head>
+        <title>Giới thiệu về trung tâm</title>
+      </Head>
       <Stack>
         <Card bg="blue" shadow="xs" radius={"md"} padding={"xs"}>
           <Text color="white" fw={500}>
-            Giới thiệu Trung tâm
+            Giới thiệu trung tâm
           </Text>
         </Card>
         <Text>
