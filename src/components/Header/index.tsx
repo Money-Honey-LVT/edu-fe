@@ -126,8 +126,8 @@ export function HeaderComponent() {
       </div>
       <Header height={56} mb={"xl"}>
         <div className={classes.inner}>
-          <Group className={classes.links} spacing={5}>
-            <Link href={""}>
+          <Group className={classes.links} spacing={25}>
+            <Link href={"/"}>
               {" "}
               <Text fw={500}>Trang chủ</Text>
             </Link>

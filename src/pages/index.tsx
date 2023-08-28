@@ -1,14 +1,11 @@
 import { Courses } from "@/components/Courses";
-import { GiayPhep } from "@/components/GiayPhep";
 import { Teachers } from "@/components/Teachers";
 import { Layout } from "@/layout";
 import { MocksData } from "@/mocks";
 import { ICourse } from "@/types/models/ICourse";
 import { IUser } from "@/types/models/IUser";
-import { Center } from "@mantine/core";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import React from "react";
 
 const HomePage = ({
   courses,
@@ -22,7 +19,6 @@ const HomePage = ({
       </Head>
       <Courses courses={courses} />
       <Teachers teachers={teachers} />
-      <GiayPhep />
     </Layout>
   );
 };

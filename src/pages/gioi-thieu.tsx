@@ -1,14 +1,17 @@
+import { GiayPhep } from "@/components/GiayPhep";
 import { Layout } from "@/layout";
-import { Center, Stack, Text } from "@mantine/core";
+import { Card, Center, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 
 export default function Introduce() {
   return (
     <Layout>
       <Stack>
-        <Text fz={"lg"} fw={600}>
-          Giới thiệu Trung tâm
-        </Text>
+        <Card bg="blue" shadow="xs" radius={"md"} padding={"xs"}>
+          <Text color="white" fw={500}>
+            Giới thiệu Trung tâm
+          </Text>
+        </Card>
         <Text>
           Công ty TNHH TMDV Kiều Vi có địa chỉ tại: số 24 (8 cũ) Trần Phú,
           phường Máy Tơ, quận Ngô Quyền, thành phố Hải Phòng Được Sở Kế hoạch
@@ -28,6 +31,7 @@ export default function Introduce() {
         <Center mt={"md"}>
           <Image src={"/images/bg.jpg"} alt="bg" width={500} height={500} />
         </Center>
+        <GiayPhep />
       </Stack>
     </Layout>
   );
