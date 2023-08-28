@@ -33,6 +33,6 @@ export const getStaticProps: GetStaticProps<{
   const jsonTeachers = await responseTeachers.json();
   const teachers = jsonTeachers.data;
   return {
-    props: { courses: MocksData.Course, teachers: [] },
+    props: { courses: MocksData.Course, teachers: teachers },
   };
 };

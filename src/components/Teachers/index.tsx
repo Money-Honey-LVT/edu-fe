@@ -1,5 +1,14 @@
 import { ICourse } from "@/types/models/ICourse";
-import { Card, Col, Grid, Group, Stack, Text } from "@mantine/core";
+import {
+  Card,
+  CardSection,
+  Col,
+  Grid,
+  Group,
+  Image,
+  Stack,
+  Text,
+} from "@mantine/core";
 import React from "react";
 
 import { IUser } from "@/types/models/IUser";
@@ -22,14 +31,27 @@ export const Teachers: React.FC<Props> = ({ teachers }) => {
           ? teachers?.map((teacher) => (
               <Col span={4} key={teacher.id}>
                 <Card withBorder radius={"md"} shadow="xs" p={"0"}>
+                  <CardSection>
+                    <Image
+                      withPlaceholder
+                      src={teacher.image}
+                      alt="anh"
+                      width={"100%"}
+                      height={250}
+                    />
+                  </CardSection>
                   <Stack p={"sm"} spacing={"xs"}>
                     <Group spacing={3}>
                       <Text fw={500}>Tên giáo viên: </Text>
                       <Text color="dimmed">{teacher.fullName}</Text>
                     </Group>
                     <Group spacing={3}>
-                      <Text fw={500}>SĐT: </Text>
+                      <Text fw={500}>Điện thoại: </Text>
                       <Text color="dimmed">{teacher.phoneNumber}</Text>
+                    </Group>
+                    <Group spacing={3}>
+                      <Text fw={500}>Mô tả: </Text>
+                      <Text color="dimmed">{teacher.description}</Text>
                     </Group>
                   </Stack>
                 </Card>

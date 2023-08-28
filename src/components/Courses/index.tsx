@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const Courses: React.FC<Props> = ({ courses }) => {
-  console.log(courses);
   return (
     <Stack mb={"md"}>
       <Card bg="blue" shadow="xs" radius={"md"} padding={"xs"}>
