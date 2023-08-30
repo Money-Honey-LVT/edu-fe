@@ -134,6 +134,9 @@ export function HeaderComponent() {
             <Link href={"/gioi-thieu"}>
               <Text fw={500}>Giới thiệu</Text>
             </Link>
+            <Link href={"/tin-tuc"}>
+              <Text fw={500}>Tin tức</Text>
+            </Link>
           </Group>
           <Group align="center">
             <Anchor href={"/"}>

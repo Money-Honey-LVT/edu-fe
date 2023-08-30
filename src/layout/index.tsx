@@ -16,7 +16,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
             {children}
           </Col>
           <Col span={2} w={"100%"} className="">
-            <HotNews newsList={MocksData.HotNews} />
+            {/* <HotNews newsList={MocksData.HotNews} /> */}
             <Hotline />
           </Col>
         </Grid>
