@@ -57,26 +57,26 @@ export default function Introduce() {
         </div>
         <Stack mt={"md"} align="center" spacing={"md"}>
           <Group>
-            <Image src={"/images/bg.jpg"} alt="bg" width={500} height={500} />
+            <Image src={"/images/bg.jpg"} alt="bg" width={350} height={350} />
             <Image
               src={"/images/anh-lop-1.jpg"}
               alt="bg"
-              width={500}
-              height={500}
+              width={350}
+              height={350}
             />
           </Group>
           <Group>
             <Image
               src={"/images/anh-lop-2.jpg"}
               alt="bg"
-              width={500}
-              height={500}
+              width={350}
+              height={350}
             />
             <Image
               src={"/images/anh-lop-3.jpg"}
               alt="bg"
-              width={500}
-              height={500}
+              width={350}
+              height={350}
             />
           </Group>
         </Stack>
