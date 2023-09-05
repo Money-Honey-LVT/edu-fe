@@ -1,222 +1,41 @@
-import {
-  ActionIcon,
-  Container,
-  Group,
-  Image,
-  Text,
-  createStyles,
-  rem,
-} from "@mantine/core";
-import {
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube,
-  IconLocation,
-  IconPhone,
-} from "@tabler/icons-react";
+import { Notification, Text } from "@mantine/core";
+import { IconLocation, IconPhone } from "@tabler/icons-react";
+import { useState } from "react";
+import { notifications } from "@mantine/notifications";
 
-const useStyles = createStyles((theme) => ({
-  footer: {
-    marginTop: rem(120),
-    paddingTop: `calc(${theme.spacing.xl} * 2)`,
-    paddingBottom: `calc(${theme.spacing.xl} * 2)`,
-    backgroundColor:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[6]
-        : theme.colors.gray[0],
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
-  },
+export function FooterComponent() {
+  const [comment, setComment] = useState<{
+    fullname?: string;
+    phoneNumber?: string;
+    email?: string;
+    content?: string;
+  }>();
 
-  logo: {
-    maxWidth: rem(200),
-
-    [theme.fn.smallerThan("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-  },
-
-  description: {
-    marginTop: rem(5),
-
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: theme.spacing.xs,
-      textAlign: "center",
-    },
-  },
-
-  inner: {
-    display: "flex",
-    justifyContent: "space-between",
-
-    [theme.fn.smallerThan("sm")]: {
-      flexDirection: "column",
-      alignItems: "center",
-    },
-  },
-
-  groups: {
-    display: "flex",
-    flexWrap: "wrap",
-
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  wrapper: {
-    width: rem(160),
-  },
-
-  link: {
-    display: "block",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[1]
-        : theme.colors.gray[6],
-    fontSize: theme.fontSizes.sm,
-    paddingTop: rem(3),
-    paddingBottom: rem(3),
-
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  },
-
-  title: {
-    fontSize: theme.fontSizes.lg,
-    fontWeight: 700,
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    marginBottom: `calc(${theme.spacing.xs} / 2)`,
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
-  },
-
-  afterFooter: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: theme.spacing.xl,
-    paddingTop: theme.spacing.xl,
-    paddingBottom: theme.spacing.xl,
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
-    }`,
-
-    [theme.fn.smallerThan("sm")]: {
-      flexDirection: "column",
-    },
-  },
-
-  social: {
-    [theme.fn.smallerThan("sm")]: {
-      marginTop: theme.spacing.xs,
-    },
-  },
-}));
-
-interface FooterLinksProps {
-  data?: {
-    title: string;
-    links: { label: string; link: string }[];
-  }[];
-}
-
-export function FooterComponent({
-  data = [
-    {
-      title: "About",
-      links: [
-        {
-          label: "Features",
-          link: "#",
-        },
-        {
-          label: "Pricing",
-          link: "#",
-        },
-        {
-          label: "Support",
-          link: "#",
-        },
-        {
-          label: "Forums",
-          link: "#",
-        },
-      ],
-    },
-    {
-      title: "Project",
-      links: [
-        {
-          label: "Contribute",
-          link: "#",
-        },
-        {
-          label: "Media assets",
-          link: "#",
-        },
-        {
-          label: "Changelog",
-          link: "#",
-        },
-        {
-          label: "Releases",
-          link: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      links: [
-        {
-          label: "Join Discord",
-          link: "#",
-        },
-        {
-          label: "Follow on Twitter",
-          link: "#",
-        },
-        {
-          label: "Email newsletter",
-          link: "#",
-        },
-        {
-          label: "GitHub discussions",
-          link: "#",
-        },
-      ],
-    },
-  ],
-}: FooterLinksProps) {
-  const { classes } = useStyles();
-
-  const groups = data.map((group) => {
-    const links = group.links.map((link, index) => (
-      <Text<"a">
-        key={index}
-        className={classes.link}
-        component="a"
-        href={link.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </Text>
-    ));
-
-    return (
-      <div className={classes.wrapper} key={group.title}>
-        <Text className={classes.title}>{group.title}</Text>
-        {links}
-      </div>
-    );
-  });
+  const handleSubmitComment = () => {
+    fetch("http://localhost:8080/api/v1/feedback", {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(comment),
+    }).then(() => {});
+    setComment({
+      email: "",
+      phoneNumber: "",
+      content: "",
+    });
+    notifications.show({
+      message: "Cảm ơn bạn đã để lại đánh giá",
+      withCloseButton: true,
+      autoClose: 1200,
+      color: "blue",
+    });
+  };
 
   return (
     <footer className="bg-[url('/images/bg-footer.jpg')]">
-      <div className="py-6 px-28 flex items-center justify-between">
+      <div className="py-6 px-28 flex  grid grid-cols-2 gap-x-12">
         <div className="text-white">
           <span className="text-xl">Giới thiệu</span>
           <div className="flex items-center gap-x-2">
@@ -228,9 +47,43 @@ export function FooterComponent({
             <span>Điện thoại: 0902150168</span>
           </div>
         </div>
-        {/* <div>
-          <Image src={"/images/logo.jpg"} alt="logo" height={80} width={80} />
-        </div> */}
+        <div className="flex">
+          <div className="flex flex-col w-full gap-y-5 ">
+            <Text color="white" fz={"lg"} fw={600}>
+              Để lại đánh giá, góp ý của bạn về trung tâm
+            </Text>
+            <input
+              placeholder="Điện thoại"
+              className="p-2"
+              value={comment?.phoneNumber}
+              onChange={(e) =>
+                setComment({ ...comment, phoneNumber: e.currentTarget.value })
+              }
+            />
+            <input
+              placeholder="Email"
+              className="p-2"
+              value={comment?.email}
+              onChange={(e) =>
+                setComment({ ...comment, email: e.currentTarget.value })
+              }
+            />
+            <textarea
+              placeholder="Góp ý, nhận xét"
+              className="p-2"
+              value={comment?.content}
+              onChange={(e) =>
+                setComment({ ...comment, content: e.currentTarget.value })
+              }
+            />
+            <button
+              className="bg-blue-500 w-fit py-2 px-5 text-white"
+              onClick={handleSubmitComment}
+            >
+              Gửi đánh giá
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   );
